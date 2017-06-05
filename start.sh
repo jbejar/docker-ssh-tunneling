@@ -7,8 +7,9 @@ chown root:root /ssh/*
 
 echo "ForceCommand echo this account can only be used for tunneling" > /etc/ssh/sshd_config
 echo "HostKey /ssh/ssh_host_rsa_key" >> /etc/ssh/sshd_config
-echo "PermitOpen ${SSH_PERMITOPEN}" >> /etc/ssh/sshd_config
 echo "AllowUsers ${SSH_USER}" >> /etc/ssh/sshd_config
+echo "GatewayPorts ${SSH_GATEWAYPORTS}" >> /etc/ssh/sshd_config
+echo "AllowTcpForwarding ${SSH_TCP_FORWARDING}" >> /etc/ssh/sshd_config
 
 ln -s -f /ssh/ssh_host_rsa_key /etc/ssh/ssh_host_rsa_key
 ln -s -f /ssh/ssh_host_rsa_key.pub /etc/ssh/ssh_host_rsa_key.pub
